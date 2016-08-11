@@ -37,6 +37,7 @@ $(document).ready(function() {
       url: '/cats',
       data: cat,
       success: function(data) {
+        $('#cat-list').empty();
         console.log('post request successful!');
         loadCats();
       },

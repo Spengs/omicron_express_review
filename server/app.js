@@ -2,21 +2,15 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
+var cats = require('./routes/cats');
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-var cats = [{name: 'Luna', trait: 'Fiesty'}];
+
 
 // Routes
-app.get('/cats', function(req, res) {
-  res.send(cats);
-});
-
-app.post('/cats', function(req, res) {
-  console.log('request: ', req.body);
-  cats.push(req.body);
-  res.sendStatus(201);
-});
+app.use('/cats', cats);
 
 
 
